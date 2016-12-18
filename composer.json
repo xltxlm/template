@@ -1,0 +1,27 @@
+{
+  "name": "xltxlm/template",
+  "description": "模板类",
+  "authors": [
+    {
+      "name": "xltxlm",
+      "email": "xltxlm@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "bupt1987/html-parser": "dev-master",
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "*",
+    "friendsofphp/php-cs-fixer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "xltxlm\\template\\": [
+        "src/",
+        "./"
+      ]
+    }
+  }
+}
