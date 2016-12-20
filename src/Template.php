@@ -16,6 +16,8 @@ use \xltxlm\template\Exception\FileNotExsistException;
  */
 abstract class Template
 {
+    //控制器
+    protected $ctroller;
     /** @var string 模板的文件路径 */
     protected $file = '';
     /** @var string 保存的文件 */
