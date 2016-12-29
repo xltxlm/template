@@ -11,10 +11,7 @@
     "php": ">=7.0"
   },
   "require-dev": {
-    "bupt1987/html-parser": "dev-master",
-    "phpunit/phpunit": "*",
-    "squizlabs/php_codesniffer": "*",
-    "friendsofphp/php-cs-fixer": "*"
+    "bupt1987/html-parser": "dev-master"
   },
   "autoload": {
     "psr-4": {
