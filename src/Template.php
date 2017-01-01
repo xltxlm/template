@@ -16,6 +16,7 @@ use \xltxlm\template\Exception\FileNotExsistException;
  */
 abstract class Template
 {
+    private static $browserSync = false;
     //控制器
     protected $ctroller;
     /** @var string 模板的文件路径 */
@@ -43,10 +44,10 @@ abstract class Template
     {
         if (empty($this->file)) {
             $fileName = (new \ReflectionClass(static::class))->getFileName();
-            $this->file = dirname($fileName).DIRECTORY_SEPARATOR.basename($fileName, '.php').'.tpl.php';
+            $this->file = dirname($fileName) . DIRECTORY_SEPARATOR . basename($fileName, '.php') . '.tpl.php';
         }
         if (!is_file($this->file)) {
-            throw new FileNotExsistException('文件不存在:'.$this->file);
+            throw new FileNotExsistException('文件不存在:' . $this->file);
         }
 
         return $this->file;
@@ -71,10 +72,16 @@ abstract class Template
     final public function __invoke()
     {
         ob_start();
-        eval("include '".$this->getFile()."';");
+        eval("include '" . $this->getFile() . "';");
         if ($this->saveToFileName) {
             file_put_contents($this->saveToFileName, ob_get_clean());
         } else {
+            if (!self::$browserSync && $_SERVER['SERVER_PORT'] == 3000) {
+                echo '<script id="__bs_script__">/*<![CDATA[*/ ' .
+                    'document.write("<script async src=\'/browser-sync/browser-sync-client.js?v=2.18.5\'><\/script>"' .
+                    '.replace("HOST", location.hostname)); //]]></script>';
+                self::$browserSync = true;
+            }
             return ob_get_clean();
         }
 
