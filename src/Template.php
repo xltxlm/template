@@ -72,10 +72,12 @@ abstract class Template
     {
         ob_start();
         eval("include '".$this->getFile()."';");
+        $ob_get_clean = ob_get_clean();
         if ($this->saveToFileName) {
-            file_put_contents($this->saveToFileName, ob_get_clean());
+            if (file_get_contents($this->saveToFileName) != $ob_get_clean)
+                file_put_contents($this->saveToFileName, $ob_get_clean);
         } else {
-            return ob_get_clean();
+            return $ob_get_clean;
         }
 
         return '';
