@@ -18,11 +18,11 @@ trait HtmlTemplate
     protected $HtmlTemplate = '';
 
     /**
-     * @param string $HtmlTemplate
+     * @param string|null $HtmlTemplate
      *
      * @return static
      */
-    public function setHtmlTemplate(string $HtmlTemplate)
+    public function setHtmlTemplate($HtmlTemplate)
     {
         $this->HtmlTemplate = $HtmlTemplate;
 
@@ -34,6 +34,9 @@ trait HtmlTemplate
      */
     final protected function getHtmlTemplate()
     {
+        if ($this->HtmlTemplate === null) {
+            return;
+        }
         if (!empty($this->HtmlTemplate)) {
             eval("include '$this->HtmlTemplate';");
         } else {
