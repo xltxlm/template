@@ -8,7 +8,9 @@
     }
   ],
   "require": {
-    "php": ">=7.0"
+    "php": ">=7.1",
+    "xltxlm/fileinfo": "@dev",
+    "xltxlm/url": "@dev"
   },
   "require-dev": {
     "bupt1987/html-parser": "dev-master"

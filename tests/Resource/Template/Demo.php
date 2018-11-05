@@ -12,7 +12,7 @@ use xltxlm\template\Template;
 
 final class Demo extends Template
 {
-    protected $file = __DIR__.'/Demo.tpl.php';
+    protected $HtmlTemplate = __DIR__.'/Demo.tpl.php';
     protected $id = 1;
     protected $name = '测试名称';
 

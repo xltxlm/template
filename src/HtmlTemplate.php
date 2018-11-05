@@ -8,41 +8,47 @@
 
 namespace xltxlm\template;
 
+use xltxlm\fileinfo\Fileinfo;
+
 /**
  * 把类转换成模板类
  * Class HtmlTemplate.
  */
 trait HtmlTemplate
 {
-    /** @var string 模板文件路径,如果没有指定,那么用类的同名模板文件 */
-    protected $HtmlTemplate = '';
-
-    /**
-     * @param string|null $HtmlTemplate
-     *
-     * @return static
-     */
-    public function setHtmlTemplate($HtmlTemplate)
-    {
-        $this->HtmlTemplate = $HtmlTemplate;
-
-        return $this;
-    }
+    use HtmlTemplate\HtmlTemplate_implements;
 
     /**
      * 在 runinvoke 里面,此方法跑到调用类的所有方法后面.
      */
-    final protected function getHtmlTemplate()
+    protected function getHtmlTemplate(): string
     {
         if ($this->HtmlTemplate === null) {
-            return;
+            throw (new \xltxlm\template\Exception\Exception_Filenot_Exist())
+                ->setHtmlTemplate($this->HtmlTemplate);
         }
         if (!empty($this->HtmlTemplate)) {
             eval("include '$this->HtmlTemplate';");
         } else {
-            $filepath = (new \ReflectionClass(static::class))->getFileName();
-            $filepath = strtr($filepath, ['.php' => '.tpl.php']);
+            $filepathold = (new \ReflectionClass(static::class))->getFileName();
+
+            $filepath = strtr($filepathold, ['.php' => '.tpl.php']);
+            if (is_file($filepath)) {
+                eval("include '$filepath';");
+                return $filepath;
+            }
+
+            $getFilename_no_Extension = (new Fileinfo($filepathold))
+                ->getFilename_no_Extension();
+
+            $filepath = dirname($filepath) . '/' . $getFilename_no_Extension . '/' . $getFilename_no_Extension . '.tpl.php';
             eval("include '$filepath';");
+            if (is_file($filepath)) {
+                return $filepath;
+            } else {
+                throw (new \xltxlm\template\Exception\Exception_Filenot_Exist())
+                    ->setHtmlTemplate($this->HtmlTemplate);
+            }
         }
     }
 }

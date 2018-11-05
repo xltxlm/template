@@ -8,7 +8,6 @@
 
 namespace xltxlm\template;
 
-use \xltxlm\template\Exception\FileNotExsistException;
 
 /**
  * 文件模板基类
@@ -17,7 +16,7 @@ use \xltxlm\template\Exception\FileNotExsistException;
 abstract class Template
 {
     /** @var string 模板的文件路径 */
-    protected $file = '';
+    protected $HtmlTemplate = '';
     /** @var string 保存的文件 */
     protected $saveToFileName = '';
 
@@ -33,30 +32,30 @@ abstract class Template
     }
 
     /**
-     * @throws FileNotExsistException
      *
      * @return string
      */
-    public function getFile()
+    public function getHtmlTemplate()
     {
-        if (empty($this->file)) {
+        if (empty($this->HtmlTemplate)) {
             $fileName = (new \ReflectionClass(static::class))->getFileName();
-            $this->file = dirname($fileName).DIRECTORY_SEPARATOR.basename($fileName, '.php').'.tpl.php';
+            $this->HtmlTemplate = dirname($fileName) . DIRECTORY_SEPARATOR . basename($fileName, '.php') . '.tpl.php';
         }
-        if (!is_file($this->file)) {
-            throw new FileNotExsistException('文件不存在:'.$this->file);
+        if (is_file($this->HtmlTemplate) == false) {
+            throw (new Exception\Exception_Filenot_Exist)
+                ->setHtmlTemplate($this->HtmlTemplate);
         }
 
-        return $this->file;
+        return $this->HtmlTemplate;
     }
 
     /**
-     * @param string $file
+     * @param string $HtmlTemplate
      * @return Template|static
      */
-    public function setFile(string $file): Template
+    public function setHtmlTemplate(string $HtmlTemplate): Template
     {
-        $this->file = $file;
+        $this->HtmlTemplate = $HtmlTemplate;
 
         return $this;
     }
@@ -69,11 +68,12 @@ abstract class Template
     final public function __invoke()
     {
         ob_start();
-        eval("include '".$this->getFile()."';");
+        eval("include '" . $this->getHtmlTemplate() . "';");
         $ob_get_clean = ob_get_clean();
         if ($this->saveToFileName) {
-            if (file_get_contents($this->saveToFileName) != $ob_get_clean)
+            if (file_get_contents($this->saveToFileName) != $ob_get_clean) {
                 file_put_contents($this->saveToFileName, $ob_get_clean);
+            }
         } else {
             return $ob_get_clean;
         }
