@@ -10,6 +10,7 @@
 use xltxlm\template\Resource\Resource_implements;
 use xltxlm\url\Urlinfo;
 
+eval('include_once "/var/www/html/vendor/autoload.php";');
 include __DIR__ . '/src/Resource/Resource_implements.php';
 include __DIR__ . '/vendor/xltxlm/url/src/Basic/UrlTrait/UrlTrait_implements.php';
 include __DIR__ . '/vendor/xltxlm/url/src/Basic/UrlTrait.php';
@@ -22,6 +23,6 @@ foreach ($getConstants as $getConstant) {
     $getpath = (new Urlinfo($getConstant))
         ->getpath();
     $getConstants_new = "/localstyle/" . $getpath;
-    echo "mkdir -p .$getConstants_new\n";
+    echo "mkdir -p ." . dirname($getConstants_new) . "\n";
     echo "wget {$getConstant} -O .$getConstants_new\n";
 }
