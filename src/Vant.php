@@ -33,19 +33,8 @@ class Vant extends Vant\Vant_implements
             <?php
         }
         if ($this->getlocalstyle() == true) {
-            $html = ob_get_clean();
-
-            $getConstants = (new \ReflectionClass(Resource_implements::class))
-                ->getConstants();
-            $getConstants_new = [];
-            foreach ($getConstants as $getConstant) {
-                $getpath = (new Urlinfo($getConstant))
-                    ->getpath();
-                $getConstants_new[$getConstant] = "/localstyle/" . $getpath;
-            }
-
-            $html = strtr($html, $getConstants_new);
-            echo $html;
+            echo (new Resource\Resource_Local(ob_get_clean()))
+                ->__invoke();
         }
     }
 
