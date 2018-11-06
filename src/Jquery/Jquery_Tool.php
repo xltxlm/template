@@ -26,7 +26,11 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
 
         <script src="<?= \xltxlm\template\Resource\Resource_implements::CLIPBOARD ?>"></script>
         <script>
-            var clipboard = new ClipboardJS('.copytext');
+            var clipboard;
+            $(function () {
+                clipboard = new ClipboardJS('.copytext');
+            })
+
         </script>
 
         <?php
