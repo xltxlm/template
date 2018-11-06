@@ -27,8 +27,9 @@ trait HtmlTemplate
             throw (new \xltxlm\template\Exception\Exception_Filenot_Exist())
                 ->setHtmlTemplate($this->HtmlTemplate);
         }
-        if (!empty($this->HtmlTemplate)) {
+        if (empty($this->HtmlTemplate) == false) {
             eval("include '$this->HtmlTemplate';");
+            return '';
         } else {
             $filepathold = (new \ReflectionClass(static::class))->getFileName();
 
