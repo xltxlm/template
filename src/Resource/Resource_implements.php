@@ -13,6 +13,7 @@ abstract class Resource_implements
     public const JQUERY="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js";
     public const JQUERYCOOKIE="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js";
     public const FINGERPRINT="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs/0.5.3/fingerprint.min.js";
+    public const CLIPBOARD="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js";
 
 
 

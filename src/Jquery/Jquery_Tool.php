@@ -18,6 +18,12 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
             var crcid = new Fingerprint({canvas: true}).get();
             $.cookie('crcid', crcid, {expires: 30});
         </script>
+
+        <script src="<?= \xltxlm\template\Resource\Resource_implements::CLIPBOARD ?>"></script>
+        <script>
+            var clipboard = new ClipboardJS('.copytext');
+        </script>
+
         <?php
     }
 
