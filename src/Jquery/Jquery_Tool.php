@@ -3,7 +3,7 @@
 namespace xltxlm\template\Jquery;
 
 use xltxlm\template\Resource\Resource_Local;
-
+use \xltxlm\template\Resource;
 
 /**
  * Jquery相关的工具箱;
@@ -16,22 +16,24 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
             ob_start();
         }
         ?>
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::JQUERY ?>"></script>
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::JQUERYCOOKIE ?>"></script>
+        <script src="<?= Resource::JQUERY ?>"></script>
+        <script src="<?= Resource::JQUERYCOOKIE ?>"></script>
         <!--- 设备身份识别 --->
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::FINGERPRINT ?>"></script>
+        <script src="<?= Resource::FINGERPRINT ?>"></script>
         <script>
             var crcid = new Fingerprint({canvas: true}).get();
             $.cookie('crcid', crcid, {expires: 30});
         </script>
         <!-- 图标 -->
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::EVAICONS ?>"></script>
+        <script src="<?= Resource::EVAICONS ?>"></script>
         <script>
             $(function () {
                 eva.replace();
             })
         </script>
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::CLIPBOARD ?>"></script>
+        <!--  动画效果 -->
+        <link rel="stylesheet" href="<?= Resource::MAGIC ?>" />
+        <script src="<?= Resource::CLIPBOARD ?>"></script>
         <script>
             var clipboard;
             $(function () {

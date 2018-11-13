@@ -17,6 +17,7 @@ abstract class Resource_implements
     public const VALIDATE_METHODS="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/additional-methods.min.js";
     public const VALIDATE="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js";
     public const EVAICONS="https://unpkg.com/eva-icons@1.0.2/eva.min.js";
+    public const MAGIC="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css";
 
 
 
