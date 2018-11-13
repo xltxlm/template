@@ -18,12 +18,19 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
         ?>
         <script src="<?= \xltxlm\template\Resource\Resource_implements::JQUERY ?>"></script>
         <script src="<?= \xltxlm\template\Resource\Resource_implements::JQUERYCOOKIE ?>"></script>
+        <!--- 设备身份识别 --->
         <script src="<?= \xltxlm\template\Resource\Resource_implements::FINGERPRINT ?>"></script>
         <script>
             var crcid = new Fingerprint({canvas: true}).get();
             $.cookie('crcid', crcid, {expires: 30});
         </script>
-
+        <!-- 图标 -->
+        <script src="<?= \xltxlm\template\Resource\Resource_implements::EVAICONS ?>"></script>
+        <script>
+            $(function () {
+                eva.replace();
+            })
+        </script>
         <script src="<?= \xltxlm\template\Resource\Resource_implements::CLIPBOARD ?>"></script>
         <script>
             var clipboard;

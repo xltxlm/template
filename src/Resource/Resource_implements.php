@@ -16,6 +16,7 @@ abstract class Resource_implements
     public const CLIPBOARD="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js";
     public const VALIDATE_METHODS="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/additional-methods.min.js";
     public const VALIDATE="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js";
+    public const EVAICONS="https://unpkg.com/eva-icons@1.0.2/eva.min.js";
 
 
 
