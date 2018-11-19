@@ -2,6 +2,7 @@
 
 namespace xltxlm\template\VUE;
 
+use ReflectionProperty;
 use xltxlm\classinfo\Classinfo;
 use xltxlm\str\Features\Str_To_Pinyin;
 use xltxlm\str\Str;
@@ -66,24 +67,60 @@ trait VUE_Component
         return $vuehtml;
     }
 
-    public function getVueJs(): string
+    public function __invoke()
     {
+        //循环当前类扩展的属性.输出成属性. 如果是冒号:开头的,那么就是变量绑定,否则是字符串绑定
+        $reflectionClass = new \ReflectionClass($this);
+        $reflectionProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
+        $reflectionProperties_news = [];
+        foreach ($reflectionProperties as $reflectionProperty) {
+            $name = $reflectionProperty->getName();
+            $reflectionProperty->setAccessible(true);
+            $value = $reflectionProperty->getValue($this);
+            //必须存在get,set函数
+            if (!$value || !method_exists($this, 'get' . $name) || !method_exists($this, 'set' . $name)) {
+                continue;
+            }
+
+            if ($value[0] == ':') {
+                $name = ":$name";
+            }
+            $reflectionProperties_news[] = "$name=\"$value\"";
+        }
+        ?>
+        <<?= $this->getclassName_pinyin() ?> <?= join(" ", $reflectionProperties_news) ?>>
+        <?php
+
+        $this->getVueJs();
+
+        ?>
+        </<?= $this->getclassName_pinyin() ?>>
+        <?php
+    }
+
+
+    /**
+     */
+    protected function getVueJs()
+    {
+        static $haverun = false;
+        if ($haverun) {
+            return '';
+        }
+        $haverun = true;
         //如果存在css,那么赋给vue_js.在结尾的时候输出
         $cssfile = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.css.php";
         if (is_file($cssfile)) {
-            (new VUE_Js())->setComponents_Row($cssfile);
+            (new VUE_Js())->setComponents_Row(VUE_Js::CSS, $cssfile);
         }
-        ?>
-        <script type="application/javascript">
+        ob_start([$this, '去掉注释']);
+        ?><script type="application/javascript">
             Vue.component("<?=$this->getclassName_pinyin()?>", {
                 template: "<?=$this->getVueHtml()?>",
         <?php
-        ob_start([$this, '去掉注释']);
         include $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php";
-        ob_end_flush();
         echo "});</script>";
-
-        return '';
+        (new VUE_Js())->setComponents_Row(VUE_Js::JS, ob_get_clean());
     }
 
     private function 去掉注释($html)

@@ -6,8 +6,10 @@ namespace xltxlm\template\VUE\VUE_Js;
 */
 abstract class VUE_Js_implements
 {
+    public const CSS="CSS";
+    public const JS="JS";
 
-/* @var array  组件的类名称集合 */
+    /* @var array  组件的类名称集合 */
     protected $Components = [];
 
     /**

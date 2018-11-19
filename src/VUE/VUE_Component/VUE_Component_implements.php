@@ -36,22 +36,22 @@ trait VUE_Component_implements
         $this->VueHtml = $VueHtml;
         return $this;
     }
-    /* @var string  获取js代码 */
-    protected $VueJs = '';
+    /* @var void  获取js代码 */
+    protected $VueJs;
 
     /**
-    * @return string;
+    * @return void;
     */
-    public function getVueJs():string
+    protected function getVueJs()
     {
         return $this->VueJs;
     }
 
     /**
-    * @param string $VueJs;
+    * @param  $VueJs;
     * @return $this
     */
-    protected function setVueJs(string $VueJs)
+    protected function setVueJs($VueJs)
     {
         $this->VueJs = $VueJs;
         return $this;
@@ -143,4 +143,9 @@ trait VUE_Component_implements
         $this->class_dir = $class_dir;
         return $this;
     }
+    /**
+    *  输出外部调用的内容;
+    *  @return ;
+    */
+    abstract public function __invoke();
 }

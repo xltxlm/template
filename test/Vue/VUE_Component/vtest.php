@@ -15,4 +15,43 @@ class vtest
 {
     use VUE_Component;
 
+    protected $title='';
+    protected $cc='';
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     * @return vtest
+     */
+    public function setTitle(string $title): vtest
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCc(): string
+    {
+        return $this->cc;
+    }
+
+    /**
+     * @param string $cc
+     * @return vtest
+     */
+    public function setCc(string $cc): vtest
+    {
+        $this->cc = $cc;
+        return $this;
+    }
+
 }

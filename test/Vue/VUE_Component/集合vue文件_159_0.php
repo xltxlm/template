@@ -13,13 +13,14 @@ class 集合vue文件_159_0
     {
         ob_start();
         (new VUE_Js())->__invoke();
-        ?>
-        <?php
-        $vtest = new vtest();
-        $vtest->getVueJs();
-        ?>
-        <<?= $vtest->getclassName_pinyin() ?>></<?= $vtest->getclassName_pinyin() ?>>
-        <?php
+
+        echo "\naaa\n";
+        (new vtest())
+            ->setTitle(':title')
+            ->setCc('我有一只小毛驴')
+            ->__invoke();
+        echo "\nbbb\n";
+
         (new VUE_Js())->ShowTime();
         p(htmlspecialchars(ob_get_clean()));
     }

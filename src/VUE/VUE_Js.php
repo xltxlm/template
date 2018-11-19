@@ -15,9 +15,9 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
         return self::$Component;
     }
 
-    public function setComponents_Row($Components)
+    public function setComponents_Row($type = self::CSS, $Components)
     {
-        self::$Component[] = $Components;
+        self::$Component[$type][] = $Components;
         return parent::setComponents_Row($Components);
     }
 
@@ -40,7 +40,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             $css = preg_replace("#\s*(:|;|\{|\})\s*#", "$1", $css); // 清除一些特定字符前后的空格，这里是可以扩展的，可以根据你的实际情况，添加或删除某些字符
             return "\n<style>" . $css . "</style>\n";
         });
-        foreach (self::$Component as $cssfile) {
+        foreach (self::$Component[self::CSS] as $cssfile) {
             ob_start();
             include $cssfile;
             $css = ob_get_clean();
@@ -56,6 +56,13 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             echo join("\n", $csss);
         }
         ob_end_flush();
+
+        //输出组件js的内容
+        foreach (self::$Component[self::JS] as $jscode) {
+            if ($jscode) {
+                echo $jscode . "\n";
+            }
+        }
         ?>
         <script type="application/javascript">
             var vue = new Vue(
