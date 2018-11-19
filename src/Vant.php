@@ -3,7 +3,6 @@
 namespace xltxlm\template;
 
 use xltxlm\template\Resource\Resource_implements;
-use xltxlm\url\Urlinfo;
 
 /**
  * 输出有赞样式框架必备的css,js;

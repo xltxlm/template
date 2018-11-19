@@ -7,10 +7,13 @@
       "email": "xltxlm@qq.com"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.1",
     "xltxlm/fileinfo": "@dev",
-    "xltxlm/url": "@dev"
+    "xltxlm/url": "@dev",
+    "xltxlm/str": "@dev",
+    "xltxlm/classinfo": "@dev"
   },
   "require-dev": {
     "bupt1987/html-parser": "dev-master"
