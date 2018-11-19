@@ -42,19 +42,28 @@ trait VUE_Component
 
     protected function Real_getVueHtml(): string
     {
-        ob_start(function ($html) {
-            return strtr($html,
-                [
-                    "\r" => "",
-                    "\n" => "",
-                    '"' => '\\"',
-                    '\\' => '\\\\',
-                ]);
-        });
+        ob_start();
         $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.html.php";
         include $filepath;
         $html = ob_get_clean();
-        return $html;
+        //第一个根元素,加上组件的名字,防止css跨组件冲突
+        $lines = explode("\n", $html);
+        foreach ($lines as $key => $line) {
+            $line = trim($line);
+            if ($line && substr($line, -1) == '>') {
+                $lines[$key] = substr($line, 0, -1) . " css-{$this->getclassName_pinyin()} >";
+                break;
+            }
+        }
+        $html = join("\n", $lines);
+        $vuehtml = strtr($html,
+            [
+                "\r" => "",
+                "\n" => "",
+                '"' => '\\"',
+                '\\' => '\\\\',
+            ]);
+        return $vuehtml;
     }
 
     public function getVueJs(): string
