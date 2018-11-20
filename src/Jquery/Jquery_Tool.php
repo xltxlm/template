@@ -17,6 +17,15 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
         }
         ?>
         <script src="<?= Resource::JQUERY ?>"></script>
+        <script type="application/javascript">
+            window.onerror = function (message, source, lineno, colno, error) {
+                $.ajax({
+                    url: '/?c=Js/Error',
+                    method: "POST",
+                    data: {message: message, source: source, lineno: lineno, colno: colno, error: error}
+                });
+            };
+        </script>
         <script src="<?= Resource::JQUERYCOOKIE ?>"></script>
         <!--- 设备身份识别 --->
         <script src="<?= Resource::FINGERPRINT ?>"></script>
