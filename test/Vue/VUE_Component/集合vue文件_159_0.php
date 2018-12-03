@@ -16,7 +16,8 @@ class 集合vue文件_159_0
 
         echo "\naaa\n";
         (new vtest())
-            ->setTitle(':title')
+            ->setValue('abc')
+            ->setTitle(':outside_title')
             ->setCc('我有一只小毛驴')
             ->__invoke();
         echo "\nbbb\n";

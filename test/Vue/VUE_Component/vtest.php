@@ -17,6 +17,27 @@ class vtest
 
     protected $title='';
     protected $cc='';
+    protected $value='';
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     * @return vtest
+     */
+    public function setValue(string $value): vtest
+    {
+        $this->value = $value;
+        return $this;
+    }
+
+
 
     /**
      * @return string

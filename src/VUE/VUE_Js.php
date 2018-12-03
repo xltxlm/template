@@ -74,7 +74,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
                 <?php
                 ob_start();
                 include $jsfile;
-                echo (new JavaScriptPacker(ob_get_clean()))
+                echo (new JavaScriptPacker(ob_get_clean(),'none',true, false))
                     ->pack();
                 ?>
             </script>

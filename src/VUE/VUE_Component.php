@@ -73,6 +73,7 @@ trait VUE_Component
         //循环当前类扩展的属性.输出成属性. 如果是冒号:开头的,那么就是变量绑定,否则是字符串绑定
         $reflectionClass = new \ReflectionClass($this);
         $reflectionProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
+        //绑定键值对的数组
         $reflectionProperties_news = [];
         foreach ($reflectionProperties as $reflectionProperty) {
             $name = $reflectionProperty->getName();
@@ -85,6 +86,11 @@ trait VUE_Component
 
             if ($value[0] == ':') {
                 $name = ":$name";
+                $value = substr($value, 1);
+            }
+            //特殊的绑定名称.value会被改成model
+            if ($name == 'value') {
+                $name = "v-model";
             }
             $reflectionProperties_news[] = "$name=\"$value\"";
         }
@@ -115,14 +121,15 @@ trait VUE_Component
             (new VUE_Js())->setComponents_Row(VUE_Js::CSS, $cssfile);
         }
         ob_start([$this, '去掉注释']);
-        ?><script type="application/javascript">
+        ?>
+        <script type="application/javascript">
             Vue.component("<?=$this->getclassName_pinyin()?>", {
                 template: "<?=$this->getVueHtml()?>",
         <?php
         ob_start();
         include $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php";
-        echo (new JavaScriptPacker(ob_get_clean()))
-                ->pack();
+        echo (new JavaScriptPacker(ob_get_clean(), 'none', true, false))
+            ->pack();
         echo "});</script>";
         //交给vue-showtime的时候展示
         (new VUE_Js())->setComponents_Row(VUE_Js::JS, ob_get_clean());
