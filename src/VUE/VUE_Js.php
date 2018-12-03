@@ -2,6 +2,8 @@
 
 namespace xltxlm\template\VUE;
 
+use GK\JavascriptPacker;
+
 
 /**
  * vue2.x;
@@ -29,6 +31,10 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
         <?php
     }
 
+    /**
+     *  输出vue函数,并且合并输出css;
+     * @return ;
+     */
     public function ShowTime()
     {
         //循环输出css内容
@@ -38,17 +44,21 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             $css = str_replace(array("\r", "\r", "", "\t"), '', $css); // 清除换行、缩进
             $css = preg_replace("/\s(?=\s)/", '', $css); // 连续的空格替换为一个空格
             $css = preg_replace("#\s*(:|;|\{|\})\s*#", "$1", $css); // 清除一些特定字符前后的空格，这里是可以扩展的，可以根据你的实际情况，添加或删除某些字符
-            return "\n<style>" . $css . "</style>\n";
+            if ($css) {
+                return "\n<style>" . $css . "</style>\n";
+            } else {
+                return '';
+            }
         });
         foreach (self::$Component[self::CSS] as $cssfile) {
             ob_start();
             include $cssfile;
-            $css = ob_get_clean();
+            $css_contents = ob_get_clean();
             //加上名字作为css的前缀,防止冲突
             $basename = current(explode('vue.', basename($cssfile)));
-            $csss = explode("\n", $css);
-            foreach ($csss as $key => $css) {
-                $line = trim($css);
+            $csss = explode("\n", $css_contents);
+            foreach ($csss as $key => $css_contents) {
+                $line = trim($css_contents);
                 if ($line && substr($line, -1) == '{') {
                     $csss[$key] = "[css-{$basename}] " . $line;
                 }
@@ -57,6 +67,19 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
         }
         ob_end_flush();
 
+        //输出定制的js代码
+        foreach (self::$Component[self::JS_FILE] as $jsfile) {
+            ?>
+            <script type="application/javascript">
+                <?php
+                ob_start();
+                include $jsfile;
+                echo (new JavaScriptPacker(ob_get_clean()))
+                    ->pack();
+                ?>
+            </script>
+            <?php
+        }
         //输出组件js的内容
         foreach (self::$Component[self::JS] as $jscode) {
             if ($jscode) {

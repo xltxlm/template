@@ -31,7 +31,7 @@ trait VUE_Component_implements
     * @param string $VueHtml;
     * @return $this
     */
-    protected function setVueHtml(string $VueHtml)
+    protected function setVueHtml(string $VueHtml  = '')
     {
         $this->VueHtml = $VueHtml;
         return $this;
@@ -80,7 +80,7 @@ trait VUE_Component_implements
     * @param string $className;
     * @return $this
     */
-    protected function setclassName(string $className)
+    protected function setclassName(string $className  = '')
     {
         $this->className = $className;
         return $this;
@@ -109,7 +109,7 @@ trait VUE_Component_implements
     * @param string $className_pinyin;
     * @return $this
     */
-    protected function setclassName_pinyin(string $className_pinyin)
+    protected function setclassName_pinyin(string $className_pinyin  = '')
     {
         $this->className_pinyin = $className_pinyin;
         return $this;
@@ -138,7 +138,7 @@ trait VUE_Component_implements
     * @param string $class_dir;
     * @return $this
     */
-    protected function setclass_dir(string $class_dir)
+    protected function setclass_dir(string $class_dir  = '')
     {
         $this->class_dir = $class_dir;
         return $this;

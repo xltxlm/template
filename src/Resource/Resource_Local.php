@@ -29,7 +29,7 @@ class Resource_Local extends Resource_Local\Resource_Local_implements
         foreach ($getConstants as $getConstant) {
             $getpath = (new Urlinfo($getConstant))
                 ->getpath();
-            $getConstants_new[$getConstant] = "/localstyle/" . $getpath;
+            $getConstants_new[$getConstant] = "/localstyle" . $getpath;
         }
 
         return strtr($this->gethtml(), $getConstants_new);

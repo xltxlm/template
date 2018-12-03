@@ -3,6 +3,7 @@
 namespace xltxlm\template;
 
 use xltxlm\template\Resource\Resource_implements;
+use xltxlm\template\VUE\Vue_Fingerprint;
 
 /**
  * 输出有赞样式框架必备的css,js;
@@ -16,6 +17,7 @@ class Vant extends Vant\Vant_implements
         }
         ?>
         <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no,email=no,adress=no">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <?php
         (new VUE\VUE_Js)();
@@ -35,6 +37,9 @@ class Vant extends Vant\Vant_implements
             echo (new Resource\Resource_Local(ob_get_clean()))
                 ->__invoke();
         }
+        //追加上指纹的认证
+        (new Vue_Fingerprint())
+            ->__invoke();
     }
 
 

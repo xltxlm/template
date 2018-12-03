@@ -2,6 +2,7 @@
 
 namespace xltxlm\template\VUE;
 
+use GK\JavascriptPacker;
 use ReflectionProperty;
 use xltxlm\classinfo\Classinfo;
 use xltxlm\str\Features\Str_To_Pinyin;
@@ -118,8 +119,12 @@ trait VUE_Component
             Vue.component("<?=$this->getclassName_pinyin()?>", {
                 template: "<?=$this->getVueHtml()?>",
         <?php
+        ob_start();
         include $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php";
+        echo (new JavaScriptPacker(ob_get_clean()))
+                ->pack();
         echo "});</script>";
+        //交给vue-showtime的时候展示
         (new VUE_Js())->setComponents_Row(VUE_Js::JS, ob_get_clean());
     }
 

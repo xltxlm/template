@@ -13,7 +13,8 @@
     "xltxlm/fileinfo": "@dev",
     "xltxlm/url": "@dev",
     "xltxlm/str": "@dev",
-    "xltxlm/classinfo": "@dev"
+    "xltxlm/classinfo": "@dev",
+    "gkralik/php-uglifyjs":"^1.0.0"
   },
   "require-dev": {
     "bupt1987/html-parser": "dev-master"

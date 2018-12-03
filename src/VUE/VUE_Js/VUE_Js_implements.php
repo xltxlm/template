@@ -6,8 +6,12 @@ namespace xltxlm\template\VUE\VUE_Js;
 */
 abstract class VUE_Js_implements
 {
+    /*  */
     public const CSS="CSS";
+    /*  */
     public const JS="JS";
+    /* 具体的js代码文件 */
+    public const JS_FILE="JS_FILE";
 
     /* @var array  组件的类名称集合 */
     protected $Components = [];
@@ -31,7 +35,7 @@ abstract class VUE_Js_implements
     * @param array $Components;
     * @return $this
     */
-    protected function setComponents(array $Components)
+    protected function setComponents(array $Components  = [])
     {
         $this->Components = $Components;
         return $this;
@@ -51,7 +55,7 @@ abstract class VUE_Js_implements
     * @param string $Appid;
     * @return $this
     */
-    public function setAppid(string $Appid)
+    public function setAppid(string $Appid  = app)
     {
         $this->Appid = $Appid;
         return $this;
