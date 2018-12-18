@@ -70,6 +70,12 @@ trait VUE_Component
 
     public function __invoke()
     {
+        //只输出组件,不辅助输出html
+        if($this->isonlyLibs())
+        {
+            $this->getVueJs();
+            return '';
+        }
         //循环当前类扩展的属性.输出成属性. 如果是冒号:开头的,那么就是变量绑定,否则是字符串绑定
         $reflectionClass = new \ReflectionClass($this);
         $reflectionProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
@@ -85,14 +91,14 @@ trait VUE_Component
             }
 
             if ($value[0] == ':') {
-                $name = ":$name";
-                $value = substr($value, 1);
+                $name = ':'.$name;
+                $value = addcslashes(substr($value, 1),'\\');
             }
             //特殊的绑定名称.value会被改成model
             if ($name == 'value') {
                 $name = "v-model";
             }
-            $reflectionProperties_news[] = "$name=\"$value\"";
+            $reflectionProperties_news[] = "$name='$value'";
         }
         ?>
         <<?= $this->getclassName_pinyin() ?> <?= join(" ", $reflectionProperties_news) ?>>
@@ -121,15 +127,37 @@ trait VUE_Component
             (new VUE_Js())->setComponents_Row(VUE_Js::CSS, $cssfile);
         }
         ob_start([$this, '去掉注释']);
+
+        //循环当前类扩展的属性.输出成属性. 如果是冒号:开头的,那么就是变量绑定,否则是字符串绑定
+        $reflectionClass = new \ReflectionClass($this);
+        $reflectionProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
+        //绑定键值对的数组
+        $reflectionProperties_news = [];
+        foreach ($reflectionProperties as $reflectionProperty) {
+            $name = $reflectionProperty->getName();
+            $reflectionProperties_news[]="'{$name}'";
+            //必须存在get,set函数
+            if (!method_exists($this, 'get' . $name) || !method_exists($this, 'set' . $name)) {
+                continue;
+            }
+
+            //特殊的绑定名称.value会被改成model
+            if ($name == 'value') {
+                continue;
+            }
+        }
         ?>
         <script type="application/javascript">
             Vue.component("<?=$this->getclassName_pinyin()?>", {
+                props: [<?=join(',',$reflectionProperties_news)?>],
                 template: "<?=$this->getVueHtml()?>",
         <?php
         ob_start();
         include $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php";
-        echo (new JavaScriptPacker(ob_get_clean(), 'none', true, false))
-            ->pack();
+        //压缩输出
+        echo (new JavaScriptPacker(ob_get_clean(), 'none', true, false))->pack();
+        //不压缩输出
+        //echo ob_get_clean();
         echo "});</script>";
         //交给vue-showtime的时候展示
         (new VUE_Js())->setComponents_Row(VUE_Js::JS, ob_get_clean());

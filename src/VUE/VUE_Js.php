@@ -3,6 +3,7 @@
 namespace xltxlm\template\VUE;
 
 use GK\JavascriptPacker;
+use xltxlm\url\Urlinfo;
 
 
 /**
@@ -26,9 +27,17 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
 
     public function __invoke()
     {
-        ?>
-        <script src="<?= \xltxlm\template\Resource\Resource_implements::VUE ?>"></script>
-        <?php
+        if ($this->getlocalstyle()) {
+            $getpath = (new Urlinfo(\xltxlm\template\Resource::VUE))
+                ->getpath();
+            ?>
+            <script src="/localstyle<?= $getpath ?>"></script>
+            <?php
+        } else {
+            ?>
+            <script src="<?= \xltxlm\template\Resource::VUE ?>"></script>
+            <?php
+        }
     }
 
     /**
@@ -74,7 +83,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
                 <?php
                 ob_start();
                 include $jsfile;
-                echo (new JavaScriptPacker(ob_get_clean(),'none',true, false))
+                echo (new JavaScriptPacker(ob_get_clean(), 'none', true, false))
                     ->pack();
                 ?>
             </script>
@@ -88,11 +97,25 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
         }
         ?>
         <script type="application/javascript">
-            var vue = new Vue(
-                {}
+            var <?=$this->getAppid()?> =
+            new Vue(
+                {
+                    mixins: [<?=join(',', $this->getmixins())?>],
+                }
             ).$mount('#<?=$this->getAppid()?>');
         </script>
         <?php
     }
+
+    /**
+     * @return string
+     */
+    public function Makemixin(): string
+    {
+        $uniqid = "VUEmixin".uniqid();
+        $this->setmixins_Row($uniqid);
+        return $uniqid;
+    }
+
 
 }

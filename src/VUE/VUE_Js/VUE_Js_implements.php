@@ -2,6 +2,7 @@
 namespace xltxlm\template\VUE\VUE_Js;
 
 /**
+ * :类;
  * vue2.x;
 */
 abstract class VUE_Js_implements
@@ -22,6 +23,16 @@ abstract class VUE_Js_implements
     abstract public function getComponents():array;
     
     /**
+    * @param array $Components;
+    * @return $this
+    */
+    protected function setComponents(array $Components  = [])
+    {
+        $this->Components = $Components;
+        return $this;
+    }
+
+    /**
     * @param  $Components;
     * @return $this
     */
@@ -31,15 +42,6 @@ abstract class VUE_Js_implements
         return $this;
     }
 
-    /**
-    * @param array $Components;
-    * @return $this
-    */
-    protected function setComponents(array $Components  = [])
-    {
-        $this->Components = $Components;
-        return $this;
-    }
     /* @var string  div元素的id */
     protected $Appid = 'app';
 
@@ -55,11 +57,69 @@ abstract class VUE_Js_implements
     * @param string $Appid;
     * @return $this
     */
-    public function setAppid(string $Appid  = app)
+    public function setAppid(string $Appid  = "app")
     {
         $this->Appid = $Appid;
         return $this;
     }
+
+    /* @var bool  是否采用本地样式的链接地址 */
+    protected $localstyle = false;
+    
+    /**
+    * @return bool;
+    */
+    public function getlocalstyle():bool
+    {
+        return $this->localstyle;
+    }
+
+    public function islocalstyle():bool
+    {
+        return $this->getlocalstyle();
+    }
+    
+    /**
+    * @param bool $localstyle;
+    * @return $this
+    */
+    public function setlocalstyle(bool $localstyle  = false)
+    {
+        $this->localstyle = $localstyle;
+        return $this;
+    }
+
+    /* @var array  附加功能组件列表 */
+    protected static $mixins = [];
+
+    /**
+    * @return array;
+    */
+    public function getmixins():array
+    {
+        return static::$mixins;
+    }
+
+    /**
+    * @param array $mixins;
+    * @return $this
+    */
+    public function setmixins(array $mixins  = [])
+    {
+        static::$mixins = $mixins;
+        return $this;
+    }
+
+    /**
+    * @param  $mixins;
+    * @return $this
+    */
+    public function setmixins_Row($mixins)
+    {
+        static::$mixins[] = $mixins;
+        return $this;
+    }
+
     /**
     *  ;
     *  @return ;
@@ -70,4 +130,9 @@ abstract class VUE_Js_implements
     *  @return ;
     */
     abstract public function ShowTime();
+    /**
+    *  生成一个新的mixin,并且输出变量名到页面上;
+    *  @return :string;
+    */
+    abstract public function Makemixin():string;
 }

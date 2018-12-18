@@ -2,6 +2,7 @@
 namespace xltxlm\template\VUE\VUE_Component;
 
 /**
+ * :Trait;
  * 提供vue的基础手脚架函数;
 */
 trait VUE_Component_implements
@@ -31,7 +32,7 @@ trait VUE_Component_implements
     * @param string $VueHtml;
     * @return $this
     */
-    protected function setVueHtml(string $VueHtml  = '')
+    protected function setVueHtml(string $VueHtml  = "")
     {
         $this->VueHtml = $VueHtml;
         return $this;
@@ -80,7 +81,7 @@ trait VUE_Component_implements
     * @param string $className;
     * @return $this
     */
-    protected function setclassName(string $className  = '')
+    protected function setclassName(string $className  = "")
     {
         $this->className = $className;
         return $this;
@@ -109,7 +110,7 @@ trait VUE_Component_implements
     * @param string $className_pinyin;
     * @return $this
     */
-    protected function setclassName_pinyin(string $className_pinyin  = '')
+    protected function setclassName_pinyin(string $className_pinyin  = "")
     {
         $this->className_pinyin = $className_pinyin;
         return $this;
@@ -138,9 +139,34 @@ trait VUE_Component_implements
     * @param string $class_dir;
     * @return $this
     */
-    protected function setclass_dir(string $class_dir  = '')
+    protected function setclass_dir(string $class_dir  = "")
     {
         $this->class_dir = $class_dir;
+        return $this;
+    }
+    /* @var bool  只输出组件,不辅助输出html */
+    protected $onlyLibs = false;
+    
+    /**
+    * @return bool;
+    */
+    public function getonlyLibs():bool
+    {
+        return $this->onlyLibs;
+    }
+
+    public function isonlyLibs():bool
+    {
+        return $this->getonlyLibs();
+    }
+    
+    /**
+    * @param bool $onlyLibs;
+    * @return $this
+    */
+    public function setonlyLibs(bool $onlyLibs  = false)
+    {
+        $this->onlyLibs = $onlyLibs;
         return $this;
     }
     /**
