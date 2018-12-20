@@ -22,7 +22,7 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
                 $.ajax({
                     url: '/?c=Js/Error',
                     method: "POST",
-                    data: {message: message, source: source, lineno: lineno, colno: colno, error: error}
+                    data: {message: message, source: source, lineno: lineno, colno: colno, error: error,user_agent:navigator.userAgent}
                 });
             };
         </script>

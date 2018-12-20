@@ -9,11 +9,11 @@ if (crcid == '') {
     document.write('sorry! we are only Support Chrome,safari');
     die;
 }
-Vue.mixin({
+var <?=(new \xltxlm\template\VUE\VUE_Js)->Makemixin()?> = {
     data: function () {
         return {
             myid: crcid
         }
     }
-});
+};
 

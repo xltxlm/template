@@ -25,7 +25,7 @@ class Vant extends Vant\Vant_implements
         <script src="<?= Resource_implements::VANTJS ?>"></script>
         <link rel="stylesheet" href="<?= Resource_implements::VANTCSS ?>">
         <?php
-        (new Jquery\Jquery_Tool)();
+        (new Jquery\Jquery_Tool)->__invoke();
 
         if ($this->getdebug() == true) {
             ?>

@@ -2,6 +2,7 @@
 namespace xltxlm\template\Resource;
 
 /**
+ * :类;
  * js,css原始的cdn引用地址;
 */
 abstract class Resource_implements
@@ -30,4 +31,6 @@ abstract class Resource_implements
     public const EVAICONS="https://unpkg.com/eva-icons@1.0.2/eva.min.js";
     /* 动画效果 */
     public const MAGIC="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css";
+    /* 其他平台支持苹果ts格式的播放 */
+    public const HLS="https://cdn.jsdelivr.net/npm/hls.js@latest";
 }
