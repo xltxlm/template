@@ -67,7 +67,6 @@ trait VUE_Component
                 '"' => '\\"',
                 '\\' => '\\\\',
             ]);
-        p($vuehtml);
         return $vuehtml;
     }
 

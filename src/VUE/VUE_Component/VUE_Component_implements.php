@@ -37,6 +37,7 @@ trait VUE_Component_implements
         $this->VueHtml = $VueHtml;
         return $this;
     }
+
     /* @var void  获取js代码 */
     protected $VueJs;
 
@@ -57,6 +58,7 @@ trait VUE_Component_implements
         $this->VueJs = $VueJs;
         return $this;
     }
+
     /* @var string  类的名称 */
     protected $className = '';
 
@@ -69,7 +71,7 @@ trait VUE_Component_implements
     /**
     * @return string;
     */
-    final protected function getclassName(bool $清除缓存 = false):string
+    final public function getclassName(bool $清除缓存 = false):string
     {
         if ($this->cached_className === false || $清除缓存===true) {
             $this->cached_className = $this->Real_getclassName();
@@ -86,6 +88,7 @@ trait VUE_Component_implements
         $this->className = $className;
         return $this;
     }
+
     /* @var string  类的拼音名称,作为html模块名称,没有连接符 */
     protected $className_pinyin = '';
 
@@ -115,6 +118,7 @@ trait VUE_Component_implements
         $this->className_pinyin = $className_pinyin;
         return $this;
     }
+
     /* @var string  组件所在的文件夹 */
     protected $class_dir = '';
 
@@ -144,6 +148,7 @@ trait VUE_Component_implements
         $this->class_dir = $class_dir;
         return $this;
     }
+
     /* @var bool  只输出组件,不辅助输出html */
     protected $onlyLibs = false;
     
@@ -169,6 +174,7 @@ trait VUE_Component_implements
         $this->onlyLibs = $onlyLibs;
         return $this;
     }
+
     /**
     *  输出外部调用的内容;
     *  @return ;
