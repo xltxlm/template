@@ -69,7 +69,8 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             foreach ($csss as $key => $css_contents) {
                 $line = trim($css_contents);
                 if ($line && substr($line, -1) == '{') {
-                    $csss[$key] = "[css-{$basename}] " . $line;
+                    //$csss[$key] = "[css-{$basename}] " . $line;
+                    $csss[$key] =  $line;
                 }
             }
             echo join("\n", $csss);

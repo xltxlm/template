@@ -10,9 +10,9 @@ abstract class Resource_implements
     /*  */
     public const VUE="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js";
     /* 有赞移动端js */
-    public const VANTJS="https://unpkg.com/vant@1.4.7/lib/vant.min.js";
+    public const VANTJS="https://unpkg.com/vant@1.5.0-beta2/lib/vant.min.js";
     /* 有赞移动端css */
-    public const VANTCSS="https://unpkg.com/vant@1.4.7/lib/index.css";
+    public const VANTCSS="https://unpkg.com/vant@1.5.0-beta2/lib/index.css";
     /*  */
     public const MOBILE_DEBUG="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js";
     /*  */
@@ -33,4 +33,8 @@ abstract class Resource_implements
     public const MAGIC="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css";
     /* 其他平台支持苹果ts格式的播放 */
     public const HLS="https://cdn.jsdelivr.net/npm/hls.js@latest";
+    /* 滑块 */
+    public const SWIPER="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js";
+    /* 滑块样式 */
+    public const SWIPERCSS="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css";
 }

@@ -47,13 +47,15 @@ trait VUE_Component
         ob_start();
         $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.html.php";
         include $filepath;
-        $html = ob_get_clean();
+        $html = $this->去掉注释(ob_get_clean());
+        //$html = ob_get_clean();
         //第一个根元素,加上组件的名字,防止css跨组件冲突
         $lines = explode("\n", $html);
         foreach ($lines as $key => $line) {
             $line = trim($line);
             if ($line && substr($line, -1) == '>') {
-                $lines[$key] = substr($line, 0, -1) . " css-{$this->getclassName_pinyin()} >";
+                //$lines[$key] = substr($line, 0, -1) . " css-{$this->getclassName_pinyin()} >";
+                $lines[$key] = $line;
                 break;
             }
         }
@@ -65,14 +67,14 @@ trait VUE_Component
                 '"' => '\\"',
                 '\\' => '\\\\',
             ]);
+        p($vuehtml);
         return $vuehtml;
     }
 
     public function __invoke()
     {
         //只输出组件,不辅助输出html
-        if($this->isonlyLibs())
-        {
+        if ($this->isonlyLibs()) {
             $this->getVueJs();
             return '';
         }
@@ -86,13 +88,13 @@ trait VUE_Component
             $reflectionProperty->setAccessible(true);
             $value = $reflectionProperty->getValue($this);
             //必须存在get,set函数
-            if (!$value || !method_exists($this, 'get' . $name) || !method_exists($this, 'set' . $name)) {
+            if (strlen($value) == 0 || !method_exists($this, 'get' . $name) || !method_exists($this, 'set' . $name)) {
                 continue;
             }
 
             if ($value[0] == ':') {
-                $name = ':'.$name;
-                $value = addcslashes(substr($value, 1),'\\');
+                $name = ':' . $name;
+                $value = addcslashes(substr($value, 1), '\\');
             }
             //特殊的绑定名称.value会被改成model
             if ($name == 'value') {
@@ -126,7 +128,7 @@ trait VUE_Component
         if (is_file($cssfile)) {
             (new VUE_Js())->setComponents_Row(VUE_Js::CSS, $cssfile);
         }
-        ob_start([$this, '去掉注释']);
+        ob_start();
 
         //循环当前类扩展的属性.输出成属性. 如果是冒号:开头的,那么就是变量绑定,否则是字符串绑定
         $reflectionClass = new \ReflectionClass($this);
@@ -135,7 +137,7 @@ trait VUE_Component
         $reflectionProperties_news = [];
         foreach ($reflectionProperties as $reflectionProperty) {
             $name = $reflectionProperty->getName();
-            $reflectionProperties_news[]="'{$name}'";
+            $reflectionProperties_news[] = "'{$name}'";
             //必须存在get,set函数
             if (!method_exists($this, 'get' . $name) || !method_exists($this, 'set' . $name)) {
                 continue;
@@ -146,10 +148,19 @@ trait VUE_Component
                 continue;
             }
         }
+        //去掉父级类的属性
+        $reflectionClass = new \ReflectionClass(VUE_Component::class);
+        $reflectionProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
+        $reflectionProperties_news_unset = [];
+        foreach ($reflectionProperties as $reflectionProperty) {
+            $name = $reflectionProperty->getName();
+            $reflectionProperties_news_unset[] = "'{$name}'";
+        }
+        $reflectionProperties_news = array_diff($reflectionProperties_news, $reflectionProperties_news_unset);
         ?>
         <script type="application/javascript">
             Vue.component("<?=$this->getclassName_pinyin()?>", {
-                props: [<?=join(',',$reflectionProperties_news)?>],
+                props: [<?=join(',', $reflectionProperties_news)?>],
                 template: "<?=$this->getVueHtml()?>",
         <?php
         ob_start();
@@ -163,7 +174,7 @@ trait VUE_Component
         (new VUE_Js())->setComponents_Row(VUE_Js::JS, ob_get_clean());
     }
 
-    private function 去掉注释($html)
+    protected function 去掉注释($html)
     {
         $split = (new Str($html))
             ->Split("\n")
@@ -172,6 +183,9 @@ trait VUE_Component
         foreach ($split as $item) {
             $trim = trim($item);
             if ($trim[0] == '/' && $trim[1] == '/') {
+                continue;
+            }
+            if (strpos($trim, '<!--') === 0 && strpos($trim, '-->') === strlen($trim)-3) {
                 continue;
             }
 
