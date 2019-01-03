@@ -37,4 +37,8 @@ abstract class Resource_implements
     public const SWIPER="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js";
     /* 滑块样式 */
     public const SWIPERCSS="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css";
+    /* 数字计数 */
+    public const COUNTUP="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.9.3/countUp.min.js";
+    /* 图片懒加载控件 */
+    public const LAZYLOAD="https://unpkg.com/vue-lazyload/vue-lazyload.js";
 }

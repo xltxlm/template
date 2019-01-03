@@ -1,0 +1,3 @@
+<?php
+?>
+Vue.use(VueLazyload);
