@@ -10,6 +10,14 @@ use xltxlm\url\Urlinfo;
 class Load_JS extends Load_JS\Load_JS_implements
 {
     /**
+     * Load_JS constructor.
+     */
+    public function __construct(string $url='')
+    {
+        $this->seturl($url);
+    }
+
+    /**
      * @return mixed
      */
     public function __invoke()

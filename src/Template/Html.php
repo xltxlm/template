@@ -4,6 +4,7 @@ namespace xltxlm\template\Template;
 
 use \xltxlm\classinfo\Classinfo;
 use \GK\JavascriptPacker;
+
 /**
  * 常规的html形式输出css,js,html;
  */
@@ -51,7 +52,7 @@ trait Html
         ob_start();
         $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.css.php";
         include $filepath;
-        return "<style>" . $fixcss(ob_get_clean()) . "</style>";
+        return $fixcss(ob_get_clean());
     }
 
 

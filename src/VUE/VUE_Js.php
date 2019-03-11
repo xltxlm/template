@@ -97,19 +97,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             }
         }
         ?>
-        <script type="application/javascript">
-            var VUE_CONFIG={};
-            var <?=$this->getAppid()?> =
-            new Vue(
-                {
-                    data:{
-                        VUE_CONFIG:VUE_CONFIG,
-                    },
-                    mixins: [<?=join(',', $this->getmixins())?>],
-                }
-            ).$mount('#<?=$this->getAppid()?>');
-            window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;
-        </script>
+        <script type="application/javascript"> var VUE_CONFIG={};var <?=$this->getAppid()?> =new Vue({data:{VUE_CONFIG:VUE_CONFIG,}, mixins: [<?=join(',', $this->getmixins())?>],}).$mount('#<?=$this->getAppid()?>');window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;</script>
         <?php
     }
 

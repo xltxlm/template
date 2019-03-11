@@ -3,13 +3,17 @@ namespace xltxlm\template\VUE\VUE_Component;
 
 /**
  * :Trait;
- * 提供vue的基础手脚架函数;
+ * 提供vue的基础手脚架函数,所有生成的vue组件都会包含这个类;
 */
-trait VUE_Component_implements
+Trait VUE_Component_implements
 {
+
 
 /* @var string  获取网页代码 */
     protected $VueHtml = '';
+
+
+
 
     protected $cached_VueHtml = false;
     /**
@@ -20,47 +24,67 @@ trait VUE_Component_implements
     /**
     * @return string;
     */
-    final protected function getVueHtml(bool $清除缓存 = false):string
+    protected final function getVueHtml(bool $清除缓存 = false ):string    {
+    if($this->cached_VueHtml === false || $清除缓存===true)
     {
-        if ($this->cached_VueHtml === false || $清除缓存===true) {
-            $this->cached_VueHtml = $this->Real_getVueHtml();
-        }
-        return $this->cached_VueHtml;
+    $this->cached_VueHtml = $this->Real_getVueHtml();
+    }
+    return $this->cached_VueHtml;
     }
 
-    /**
-    * @param string $VueHtml;
-    * @return $this
-    */
+
+
+
+
+/**
+* @param string $VueHtml;
+* @return $this
+*/
     protected function setVueHtml(string $VueHtml  = "")
     {
-        $this->VueHtml = $VueHtml;
-        return $this;
+    $this->VueHtml = $VueHtml;
+    return $this;
     }
 
-    /* @var void  获取js代码 */
+
+
+/* @var void  获取js代码 */
     protected $VueJs;
+
+
+
+
 
     /**
     * @return void;
     */
-    protected function getVueJs()
+            protected function getVueJs()        {
+                return $this->VueJs;
+        }
+
+    
+    
+
+
+
+
+/**
+* @param  $VueJs;
+* @return $this
+*/
+    protected function setVueJs( $VueJs )
     {
-        return $this->VueJs;
+    $this->VueJs = $VueJs;
+    return $this;
     }
 
-    /**
-    * @param  $VueJs;
-    * @return $this
-    */
-    protected function setVueJs($VueJs)
-    {
-        $this->VueJs = $VueJs;
-        return $this;
-    }
 
-    /* @var string  类的名称 */
+
+/* @var string  类的名称 */
     protected $className = '';
+
+
+
 
     protected $cached_className = false;
     /**
@@ -71,26 +95,35 @@ trait VUE_Component_implements
     /**
     * @return string;
     */
-    final public function getclassName(bool $清除缓存 = false):string
+    public final function getclassName(bool $清除缓存 = false ):string    {
+    if($this->cached_className === false || $清除缓存===true)
     {
-        if ($this->cached_className === false || $清除缓存===true) {
-            $this->cached_className = $this->Real_getclassName();
-        }
-        return $this->cached_className;
+    $this->cached_className = $this->Real_getclassName();
+    }
+    return $this->cached_className;
     }
 
-    /**
-    * @param string $className;
-    * @return $this
-    */
+
+
+
+
+/**
+* @param string $className;
+* @return $this
+*/
     protected function setclassName(string $className  = "")
     {
-        $this->className = $className;
-        return $this;
+    $this->className = $className;
+    return $this;
     }
 
-    /* @var string  类的拼音名称,作为html模块名称,没有连接符 */
+
+
+/* @var string  类的拼音名称,作为html模块名称,没有连接符 */
     protected $className_pinyin = '';
+
+
+
 
     protected $cached_className_pinyin = false;
     /**
@@ -101,26 +134,35 @@ trait VUE_Component_implements
     /**
     * @return string;
     */
-    final public function getclassName_pinyin(bool $清除缓存 = false):string
+    public final function getclassName_pinyin(bool $清除缓存 = false ):string    {
+    if($this->cached_className_pinyin === false || $清除缓存===true)
     {
-        if ($this->cached_className_pinyin === false || $清除缓存===true) {
-            $this->cached_className_pinyin = $this->Real_getclassName_pinyin();
-        }
-        return $this->cached_className_pinyin;
+    $this->cached_className_pinyin = $this->Real_getclassName_pinyin();
+    }
+    return $this->cached_className_pinyin;
     }
 
-    /**
-    * @param string $className_pinyin;
-    * @return $this
-    */
+
+
+
+
+/**
+* @param string $className_pinyin;
+* @return $this
+*/
     protected function setclassName_pinyin(string $className_pinyin  = "")
     {
-        $this->className_pinyin = $className_pinyin;
-        return $this;
+    $this->className_pinyin = $className_pinyin;
+    return $this;
     }
 
-    /* @var string  组件所在的文件夹 */
+
+
+/* @var string  组件所在的文件夹 */
     protected $class_dir = '';
+
+
+
 
     protected $cached_class_dir = false;
     /**
@@ -131,53 +173,68 @@ trait VUE_Component_implements
     /**
     * @return string;
     */
-    final protected function getclass_dir(bool $清除缓存 = false):string
+    protected final function getclass_dir(bool $清除缓存 = false ):string    {
+    if($this->cached_class_dir === false || $清除缓存===true)
     {
-        if ($this->cached_class_dir === false || $清除缓存===true) {
-            $this->cached_class_dir = $this->Real_getclass_dir();
-        }
-        return $this->cached_class_dir;
+    $this->cached_class_dir = $this->Real_getclass_dir();
+    }
+    return $this->cached_class_dir;
     }
 
-    /**
-    * @param string $class_dir;
-    * @return $this
-    */
+
+
+
+
+/**
+* @param string $class_dir;
+* @return $this
+*/
     protected function setclass_dir(string $class_dir  = "")
     {
-        $this->class_dir = $class_dir;
-        return $this;
+    $this->class_dir = $class_dir;
+    return $this;
     }
 
-    /* @var bool  只输出组件,不辅助输出html */
+
+
+/* @var bool  只输出组件,不辅助输出html */
     protected $onlyLibs = false;
     
+
+
+
+
     /**
     * @return bool;
     */
-    public function getonlyLibs():bool
-    {
-        return $this->onlyLibs;
-    }
+            public function getonlyLibs():bool        {
+                return $this->onlyLibs;
+        }
 
-    public function isonlyLibs():bool
-    {
-        return $this->getonlyLibs();
-    }
     
-    /**
-    * @param bool $onlyLibs;
-    * @return $this
-    */
+            public function isonlyLibs():bool        {
+        return $this->getonlyLibs();
+        }
+    
+
+
+
+
+/**
+* @param bool $onlyLibs;
+* @return $this
+*/
     public function setonlyLibs(bool $onlyLibs  = false)
     {
-        $this->onlyLibs = $onlyLibs;
-        return $this;
+    $this->onlyLibs = $onlyLibs;
+    return $this;
     }
 
-    /**
-    *  输出外部调用的内容;
-    *  @return ;
-    */
-    abstract public function __invoke();
+
+
+/**
+*  输出外部调用的内容;
+*  @return ;
+*/
+abstract public function __invoke();
 }

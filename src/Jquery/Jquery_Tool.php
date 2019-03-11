@@ -29,13 +29,6 @@ class Jquery_Tool extends Jquery_Tool\Jquery_Tool_implements
         <script src="<?= Resource::JQUERYCOOKIE ?>"></script>
         <!--- 设备身份识别 --->
         <script src="<?= Resource::FINGERPRINT ?>"></script>
-        <!-- 图标 -->
-        <script src="<?= Resource::EVAICONS ?>"></script>
-        <script>
-            $(function () {
-                eva.replace();
-            })
-        </script>
         <!--  动画效果 -->
         <link rel="stylesheet" href="<?= Resource::MAGIC ?>" />
         <script src="<?= Resource::CLIPBOARD ?>"></script>

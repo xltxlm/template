@@ -10,9 +10,9 @@ abstract class Resource_implements
     /*  */
     public const VUE="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js";
     /* 有赞移动端js */
-    public const VANTJS="https://cdn.jsdelivr.net/npm/vant@1.5/lib/vant.min.js";
+    public const VANTJS="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js";
     /* 有赞移动端css */
-    public const VANTCSS="https://cdn.jsdelivr.net/npm/vant@1.5/lib/index.css";
+    public const VANTCSS="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css";
     /*  */
     public const MOBILE_DEBUG="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js";
     /*  */
