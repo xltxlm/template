@@ -11,7 +11,7 @@ use xltxlm\template\Resource\Resource_implements;
 use xltxlm\url\Urlinfo;
 
 eval('include_once "./vendor/autoload.php";');
-include __DIR__ . '/src/Resource/Resource_implements.php';
+include __DIR__ . '/vendor/xltxlm/template/src/Resource/Resource_implements.php';
 include __DIR__ . '/vendor/xltxlm/url/src/Basic/UrlTrait/UrlTrait_implements.php';
 include __DIR__ . '/vendor/xltxlm/url/src/Basic/UrlTrait.php';
 include __DIR__ . '/vendor/xltxlm/url/src/Urlinfo/Urlinfo_implements.php';
