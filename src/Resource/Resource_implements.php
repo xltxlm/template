@@ -42,9 +42,9 @@ abstract class Resource_implements
     /* 图片懒加载控件 */
     public const LAZYLOAD="https://unpkg.com/vue-lazyload/vue-lazyload.js";
     /* semantic体系css */
-    public const SEMANTICCSS="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css";
+    public const SEMANTICCSS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css";
     /* semantic体系js */
-    public const SEMANTICJS="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js";
+    public const SEMANTICJS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js";
 
 
 }
