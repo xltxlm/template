@@ -97,7 +97,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             }
         }
         ?>
-        <script type="application/javascript"> var VUE_CONFIG={};var <?=$this->getAppid()?> =new Vue({data:{VUE_CONFIG:VUE_CONFIG,}, vuetify: new Vuetify(),mixins: [<?=join(',', $this->getmixins())?>],}).$mount('#<?=$this->getAppid()?>');window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;</script>
+        <script type="application/javascript"> <?php /*后台定制的,不引入vueel*/ if($this->getAppid()=='vueel'){ echo "function Vuetify(){};";}?>;var VUE_CONFIG={};var <?=$this->getAppid()?> =new Vue({data:{VUE_CONFIG:VUE_CONFIG,}, vuetify: new Vuetify(),mixins: [<?=join(',', $this->getmixins())?>],}).$mount('#<?=$this->getAppid()?>');window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;</script>
         <?php
     }
 
