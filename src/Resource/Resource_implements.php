@@ -8,7 +8,7 @@ namespace xltxlm\template\Resource;
 abstract class Resource_implements
 {
     /*  */
-    public const VUE="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js";
+    public const VUE="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js";
     /* 有赞移动端js */
     public const VANTJS="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js";
     /* 有赞移动端css */
@@ -45,6 +45,18 @@ abstract class Resource_implements
     public const SEMANTICCSS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css";
     /* semantic体系js */
     public const SEMANTICJS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js";
+    /* vuetifyjs字体支持 */
+    public const VUETIFYJSFONTS="https://fonts.geekzu.org/css?family=Roboto:100,300,400,500,700,900%7CRoboto+Mono:500%7CMaterial+Icons";
+    /* vuetifyjs样式支持1-图标 */
+    public const VUETIFYJSMATERIALDESIGNICONS="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css";
+    /* vuetifyjs样式 */
+    public const VUETIFYJSCSS="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css";
+    /* vuetifyjs-js */
+    public const VUETIFYJSJS="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js";
+    /* fontawesome图标支持 */
+    public const VUETIFYJSFSICON="https://use.fontawesome.com/releases/v5.0.13/css/all.css";
+    /* js显示二维码 */
+    public const QRCODE="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js";
 
 
 }

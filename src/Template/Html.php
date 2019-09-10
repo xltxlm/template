@@ -13,18 +13,32 @@ trait Html
     use Html\Html_implements;
 
     /**
+     * @param bool $mixins 当前的vue-js结构体,知否挂钩在vue的根目录上?
      * @return string
      */
-    public function getJS(): string
+    public function getJS($mixins = false): string
     {
         ob_start();
         ?>
         <script type="application/javascript">
             <?php
-            $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php";
-            include $filepath;
-            echo (new JavaScriptPacker(ob_get_clean(), 'none', true, false))
-                ->pack();
+            foreach ([
+                         $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js.php",
+                         $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.js"
+                     ] as $filepath) {
+
+                ob_start();
+                include $filepath;
+                $js = ob_get_clean();
+                if (empty(trim($js))) {
+                    continue;
+                }
+                if ($mixins) {
+                    $js = "var " . (new \xltxlm\template\VUE\VUE_Js)->Makemixin() . " =" . $js;
+                }
+                echo (new JavaScriptPacker(strtr($js, ['<script>' => '', '</script>' => '', 'var mixin =' => '']), 'none', true, false))
+                    ->pack().";\n";
+            }
             ?>
         </script>
         <?php
