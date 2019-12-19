@@ -7,17 +7,13 @@ namespace xltxlm\template\Resource;
 */
 abstract class Resource_implements
 {
-    /*  */
-    public const VUE="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js";
-    /* 有赞移动端js */
-    public const VANTJS="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js";
-    /* 有赞移动端css */
-    public const VANTCSS="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css";
-    /*  */
+    /* vue */
+    public const VUE="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js";
+    /* mobile_debug */
     public const MOBILE_DEBUG="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js";
-    /*  */
+    /* jquery */
     public const JQUERY="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js";
-    /*  */
+    /* jquerycookie */
     public const JQUERYCOOKIE="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js";
     /* 设备指纹 */
     public const FINGERPRINT="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs/0.5.3/fingerprint.min.js";
@@ -41,10 +37,6 @@ abstract class Resource_implements
     public const COUNTUP="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.9.3/countUp.min.js";
     /* 图片懒加载控件 */
     public const LAZYLOAD="https://unpkg.com/vue-lazyload/vue-lazyload.js";
-    /* semantic体系css */
-    public const SEMANTICCSS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css";
-    /* semantic体系js */
-    public const SEMANTICJS="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js";
     /* vuetifyjs字体支持 */
     public const VUETIFYJSFONTS="https://fonts.geekzu.org/css?family=Roboto:100,300,400,500,700,900%7CRoboto+Mono:500%7CMaterial+Icons";
     /* vuetifyjs样式支持1-图标 */
@@ -52,7 +44,7 @@ abstract class Resource_implements
     /* vuetifyjs样式 */
     public const VUETIFYJSCSS="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css";
     /* vuetifyjs-js */
-    public const VUETIFYJSJS="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js";
+    public const VUETIFYJSJS="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js";
     /* fontawesome图标支持 */
     public const VUETIFYJSFSICON="https://use.fontawesome.com/releases/v5.0.13/css/all.css";
     /* js显示二维码 */
