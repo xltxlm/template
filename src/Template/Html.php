@@ -13,12 +13,22 @@ trait Html
     use Html\Html_implements;
 
     /**
-     * @param bool $mixins 当前的vue-js结构体,知否挂钩在vue的根目录上?
+     * @param bool $mixins 当前的vue-js结构体,知否挂钩在vue的根变量上?
      * @return string
      */
     public function getJS($mixins = false): string
     {
         ob_start();
+        $this->echoJS($mixins);
+        return ob_get_clean();
+    }
+
+    /**
+     * @param bool $mixins 当前的vue-js结构体,知否挂钩在vue的根变量上?
+     * @return void
+     */
+    public function echoJS($mixins = false)
+    {
         ?>
         <script type="application/javascript">
             <?php
@@ -29,20 +39,22 @@ trait Html
 
                 ob_start();
                 include $filepath;
-                $js = ob_get_clean();
-                if (empty(trim($js))) {
+                $js = trim(ob_get_clean());
+                //空代码,没有配套的js代码
+                if (empty($js)) {
                     continue;
                 }
                 if ($mixins) {
                     $js = "var " . (new \xltxlm\template\VUE\VUE_Js)->Makemixin() . " =" . $js;
                 }
+                //源代码上第一行存在 'var mixin =',是因为编辑器针对js文件排行问题,加上变量,排版就正确了
                 echo (new JavaScriptPacker(strtr($js, ['<script>' => '', '</script>' => '', 'var mixin =' => '']), 'none', true, false))
-                    ->pack().";\n";
+                        ->pack() . ";\n";
             }
             ?>
         </script>
         <?php
-        return ob_get_clean();
+
     }
 
     /**
@@ -50,7 +62,7 @@ trait Html
      */
     public function getCSS(): string
     {
-        //循环输出css内容
+        //循环输出css内容 -压缩
         $fixcss = function ($css) {
             $css = preg_replace('#\/\*[^*]*\*+([^/][^*]*\*+)*\/#isU', '', $css);  // 清除块级注释
             $css = str_replace(array('<!--', '-->'), '', $css);
@@ -64,9 +76,17 @@ trait Html
             }
         };
         ob_start();
+        $this->echoCSS();
+        return $fixcss(ob_get_clean());
+    }
+
+    /**
+     * @return void
+     */
+    public function echoCSS()
+    {
         $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.css.php";
         include $filepath;
-        return $fixcss(ob_get_clean());
     }
 
 
@@ -76,9 +96,17 @@ trait Html
     public function getHTML(): string
     {
         ob_start();
+        $this->echoHTML();
+        return ob_get_clean();
+    }
+
+    /**
+     * @return void
+     */
+    public function echoHTML()
+    {
         $filepath = $this->getclass_dir() . "/{$this->getclassName()}/{$this->getclassName()}vue.html.php";
         include $filepath;
-        return ob_get_clean();
     }
 
     /**
