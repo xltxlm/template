@@ -1,0 +1,920 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "3bc57308761f706ac12d3b29cea14c5c",
+    "packages": [
+        {
+            "name": "gkralik/php-uglifyjs",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gkralik/php-uglifyjs.git",
+                "reference": "0c63301bf131c6c0e48ef26cf40e65bf20936932"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gkralik/php-uglifyjs/zipball/0c63301bf131c6c0e48ef26cf40e65bf20936932",
+                "reference": "0c63301bf131c6c0e48ef26cf40e65bf20936932",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GK\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Gregor Kralik",
+                    "email": "g.kralik@gmail.com"
+                }
+            ],
+            "description": "PHP Javascript packer",
+            "time": "2019-10-03T11:54:22+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "9d6e08028560c6a2f57d360e2c57e9d9c776165b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d6e08028560c6a2f57d360e2c57e9d9c776165b",
+                "reference": "9d6e08028560c6a2f57d360e2c57e9d9c776165b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.6.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.1"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2019-10-27T08:43:59+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "17d36ed176c998839582c739ce0753381598edf0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/17d36ed176c998839582c739ce0753381598edf0",
+                "reference": "17d36ed176c998839582c739ce0753381598edf0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.27 || ^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2019-07-02T14:54:06+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "2595b33c1c924889b474d324f3d719fa40b6954e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2595b33c1c924889b474d324f3d719fa40b6954e",
+                "reference": "2595b33c1c924889b474d324f3d719fa40b6954e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2019-08-13T16:05:52+00:00"
+        },
+        {
+            "name": "overtrue/pinyin",
+            "version": "3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/pinyin.git",
+                "reference": "3b781d267197b74752daa32814d3a2cf5d140779"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/3b781d267197b74752daa32814d3a2cf5d140779",
+                "reference": "3b781d267197b74752daa32814d3a2cf5d140779",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\Pinyin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos",
+                    "homepage": "http://github.com/overtrue"
+                }
+            ],
+            "description": "Chinese to pinyin translator.",
+            "homepage": "https://github.com/overtrue/pinyin",
+            "keywords": [
+                "Chinese",
+                "Pinyin",
+                "cn2pinyin"
+            ],
+            "time": "2017-07-10T07:20:01+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "efd67d1dc14a7ef4fc4e518e7dee91c271d524e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/efd67d1dc14a7ef4fc4e518e7dee91c271d524e4",
+                "reference": "efd67d1dc14a7ef4fc4e518e7dee91c271d524e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2019-08-29T13:16:46+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2019-10-25T08:06:51+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "xltxlm/arr",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Arr.git",
+                "reference": "8c56e1843e5090bea52b37d1cc3af39e86e33591"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Arr/zipball/8c56e1843e5090bea52b37d1cc3af39e86e33591",
+                "reference": "8c56e1843e5090bea52b37d1cc3af39e86e33591",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\arr\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "数组的相关处理类",
+            "time": "2018-11-15T06:18:04+00:00"
+        },
+        {
+            "name": "xltxlm/classinfo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Classinfo.git",
+                "reference": "80ba708d1c8c777d17cddf7f115b9b045fcd3438"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Classinfo/zipball/80ba708d1c8c777d17cddf7f115b9b045fcd3438",
+                "reference": "80ba708d1c8c777d17cddf7f115b9b045fcd3438",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "xltxlm/str": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\classinfo\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "time": "2018-12-03T05:20:45+00:00"
+        },
+        {
+            "name": "xltxlm/exception",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Exception.git",
+                "reference": "2c08b91074db41d01d5b7d0d93d597973d5aaa66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Exception/zipball/2c08b91074db41d01d5b7d0d93d597973d5aaa66",
+                "reference": "2c08b91074db41d01d5b7d0d93d597973d5aaa66",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\exception\\": [
+                        "src/",
+                        "./"
+                    ]
+                },
+                "files": [
+                    "src/p.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "异常的定义",
+            "time": "2019-08-27T04:20:03+00:00"
+        },
+        {
+            "name": "xltxlm/fileinfo",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/libs/fileinfo",
+                "reference": "ce364ccafb2b9bd5fa0a9d3387b2d93089a8a3e3"
+            },
+            "require": {
+                "php": ">=7.2",
+                "xltxlm/redis": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\fileinfo\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "transport-options": {
+                "symlink": false
+            }
+        },
+        {
+            "name": "xltxlm/guzzlehttp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/GuzzleHttp.git",
+                "reference": "e35b7b57ba73ac40d78e8d0a6578cc5b69958f72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/GuzzleHttp/zipball/e35b7b57ba73ac40d78e8d0a6578cc5b69958f72",
+                "reference": "e35b7b57ba73ac40d78e8d0a6578cc5b69958f72",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0",
+                "xltxlm/logger": "@dev",
+                "xltxlm/redis": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\guzzlehttp\\": [
+                        "src/"
+                    ],
+                    "": [
+                        "./project"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "xltxlm",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "GuzzleHttp作为底层的http接口",
+            "time": "2019-03-21T04:55:29+00:00"
+        },
+        {
+            "name": "xltxlm/helper",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/helper.git",
+                "reference": "fa6a8c2bb3e56464ecc80cc3c9b7e92187df0104"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/helper/zipball/fa6a8c2bb3e56464ecc80cc3c9b7e92187df0104",
+                "reference": "fa6a8c2bb3e56464ecc80cc3c9b7e92187df0104",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "xltxlm/logger": "@dev",
+                "xltxlm/shell": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\helper\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "xltxlm",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "文件夹，类，字符串处理工具",
+            "time": "2019-09-10T06:46:35+00:00"
+        },
+        {
+            "name": "xltxlm/logger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/logger.git",
+                "reference": "f2b352e71f7daec1a5d75a68762bd1cebc70b2f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/logger/zipball/f2b352e71f7daec1a5d75a68762bd1cebc70b2f5",
+                "reference": "f2b352e71f7daec1a5d75a68762bd1cebc70b2f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.1",
+                "psr/log": "*",
+                "xltxlm/guzzlehttp": "@dev",
+                "xltxlm/helper": "@dev",
+                "xltxlm/resources": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\logger\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "日志记录类，记录的格式化json日志，供日后ELK分析",
+            "time": "2019-05-28T03:23:39+00:00"
+        },
+        {
+            "name": "xltxlm/redis",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/redis.git",
+                "reference": "e1c489985f9dea088ac00da250cd4acde206fac3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/redis/zipball/e1c489985f9dea088ac00da250cd4acde206fac3",
+                "reference": "e1c489985f9dea088ac00da250cd4acde206fac3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "xltxlm/classinfo": "@dev",
+                "xltxlm/exception": "@dev",
+                "xltxlm/logger": "@dev",
+                "xltxlm/resources": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\redis\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "redis操作类",
+            "time": "2019-09-10T06:42:35+00:00"
+        },
+        {
+            "name": "xltxlm/resources",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Resources.git",
+                "reference": "41ad3aaf2ec1b89bc1c76c808b5046e5595f38d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Resources/zipball/41ad3aaf2ec1b89bc1c76c808b5046e5595f38d3",
+                "reference": "41ad3aaf2ec1b89bc1c76c808b5046e5595f38d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\resources\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "资源相关操作的限制定义",
+            "time": "2019-03-11T03:20:03+00:00"
+        },
+        {
+            "name": "xltxlm/shell",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/shell.git",
+                "reference": "65f86f9ba29102b4cb279668e9767e1b370c7079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/shell/zipball/65f86f9ba29102b4cb279668e9767e1b370c7079",
+                "reference": "65f86f9ba29102b4cb279668e9767e1b370c7079",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "xltxlm/exception": "@dev",
+                "xltxlm/logger": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\shell\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "执行系统命令",
+            "time": "2019-08-27T03:58:42+00:00"
+        },
+        {
+            "name": "xltxlm/str",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Str.git",
+                "reference": "99b71932f4b16b4060f5bee14853e7a2954bc141"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Str/zipball/99b71932f4b16b4060f5bee14853e7a2954bc141",
+                "reference": "99b71932f4b16b4060f5bee14853e7a2954bc141",
+                "shasum": ""
+            },
+            "require": {
+                "overtrue/pinyin": "~3.0",
+                "php": ">=7.1",
+                "xltxlm/arr": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\str\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "time": "2019-09-10T06:40:25+00:00"
+        },
+        {
+            "name": "xltxlm/url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xltxlm/Url.git",
+                "reference": "e6c0789ff4e0e3b2b6ac11e80da8c01bc80bd0f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xltxlm/Url/zipball/e6c0789ff4e0e3b2b6ac11e80da8c01bc80bd0f7",
+                "reference": "e6c0789ff4e0e3b2b6ac11e80da8c01bc80bd0f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xltxlm\\url\\": [
+                        "src/",
+                        "./"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "copygithub",
+                    "email": "xltxlm@qq.com"
+                }
+            ],
+            "description": "网址的相关处理",
+            "time": "2018-11-27T03:37:29+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "bupt1987/html-parser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bupt1987/html-parser.git",
+                "reference": "9e5fac05b9354eee16bfc84058c73c5e2b1f84a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bupt1987/html-parser/zipball/9e5fac05b9354eee16bfc84058c73c5e2b1f84a3",
+                "reference": "9e5fac05b9354eee16bfc84058c73c5e2b1f84a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HtmlParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "俊杰jerry",
+                    "email": "bupt1987@gmail.com",
+                    "homepage": "http://bupt1987.github.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Html Parser",
+            "homepage": "https://github.com/bupt1987/html-parser",
+            "time": "2019-08-17T08:35:45+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "xltxlm/fileinfo": 20,
+        "xltxlm/url": 20,
+        "xltxlm/str": 20,
+        "xltxlm/classinfo": 20,
+        "bupt1987/html-parser": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.1"
+    },
+    "platform-dev": []
+}

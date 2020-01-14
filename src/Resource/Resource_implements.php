@@ -8,7 +8,7 @@ namespace xltxlm\template\Resource;
 abstract class Resource_implements
 {
     /* vue */
-    public const VUE="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js";
+    public const VUE="https://cdn.jsdelivr.net/npm/vue@2.6.x/dist/vue.min.js";
     /* mobile_debug */
     public const MOBILE_DEBUG="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js";
     /* jquery */
