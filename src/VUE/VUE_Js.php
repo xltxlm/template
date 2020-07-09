@@ -27,12 +27,10 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
 
     public function __invoke()
     {
+        $vuepath = (new Urlinfo(\xltxlm\template\Resource::VUE))
+            ->getpath();
         if ($this->getlocalstyle()) {
-            $getpath = (new Urlinfo(\xltxlm\template\Resource::VUE))
-                ->getpath();
-            ?>
-            <script src="/localstyle<?= $getpath ?>"></script>
-            <?php
+            echo "<script src=\"{$this->getossdomain()}/localstyle{$vuepath}\"></script>";
         } else {
             ?>
             <script src="<?= \xltxlm\template\Resource::VUE ?>"></script>
@@ -42,6 +40,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
 
     /**
      *  输出vue函数,并且合并输出css;
+     *
      * @return ;
      */
     public function ShowTime()
@@ -70,7 +69,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
                 $line = trim($css_contents);
                 if ($line && substr($line, -1) == '{') {
                     //$csss[$key] = "[css-{$basename}] " . $line;
-                    $csss[$key] =  $line;
+                    $csss[$key] = $line;
                 }
             }
             echo join("\n", $csss);
@@ -97,7 +96,15 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
             }
         }
         ?>
-        <script type="application/javascript"> <?php /*后台定制的,不引入vueel*/ if($this->getAppid()=='vueel'){ echo "function Vuetify(){};";}?>;var VUE_CONFIG={};var <?=$this->getAppid()?> =new Vue({data:{VUE_CONFIG:VUE_CONFIG,}, vuetify: new Vuetify(),mixins: [<?=join(',', $this->getmixins())?>],}).$mount('#<?=$this->getAppid()?>');window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;</script>
+        <script type="application/javascript"> <?php /*后台定制的,不引入vueel*/ if ($this->getAppid() == 'vueel') {
+                echo "function Vuetify(){};";
+            }?>;var VUE_CONFIG = {};
+            var <?=$this->getAppid()?> = new Vue({
+                data: {VUE_CONFIG: VUE_CONFIG,},
+                vuetify: new Vuetify(),
+                mixins: [<?=join(',', $this->getmixins())?>],
+            }).$mount('#<?=$this->getAppid()?>');
+            window.<?=$this->getAppid()?> = <?=$this->getAppid()?>;</script>
         <?php
     }
 
@@ -106,7 +113,7 @@ class VUE_Js extends VUE_Js\VUE_Js_implements
      */
     public function Makemixin(): string
     {
-        $uniqid = "VUEmixin".uniqid();
+        $uniqid = "VUEmixin" . uniqid();
         $this->setmixins_Row($uniqid);
         return $uniqid;
     }

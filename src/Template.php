@@ -65,7 +65,7 @@ abstract class Template
      *
      * @return string
      */
-    final public function __invoke()
+    public function __invoke()
     {
         ob_start();
         eval("include '" . $this->getHtmlTemplate() . "';");

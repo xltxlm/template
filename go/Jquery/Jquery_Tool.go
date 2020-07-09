@@ -1,6 +1,9 @@
 package Jquery
 
 type Jquery_Tool struct {
+    /*  */
+    localstyle bool
+
 }
 
 func NewJquery_Tool() *Jquery_Tool{
