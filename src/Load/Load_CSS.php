@@ -12,7 +12,7 @@ class Load_CSS extends Load_CSS\Load_CSS_implements
     /**
      * Load_CSS constructor.
      */
-    public function __construct(string $url='')
+    public function __construct(string $url = '')
     {
         $this->seturl($url);
     }
@@ -23,7 +23,11 @@ class Load_CSS extends Load_CSS\Load_CSS_implements
     public function __invoke()
     {
         $getpath = (new Urlinfo($this->geturl()))->getpath();
-        echo "<link rel=\"stylesheet\" href=\"/localstyle{$getpath}\" />\n";
+        if ($this->getossdomain()) {
+            echo "<link rel=\"stylesheet\" href=\"{$this->getossdomain()}/localstyle{$getpath}\" />\n";
+        } else {
+            echo "<link rel=\"stylesheet\" href=\"/localstyle{$getpath}\" />\n";
+        }
     }
 
 }
